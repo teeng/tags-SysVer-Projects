@@ -1,13 +1,13 @@
 /*
  Lab 5 Task 1
  
- Top level module for synthesis on the De-1 SoC Board.
- Sends audio data to the De-1 SoC board. Audio is either a provided audio file or a
+ Top level module for synthesis on the DE-1 SoC Board.
+ Sends audio data to the DE-1 SoC board. Audio is either a provided audio file or a
 	generated note initialized in the memory. To play the audio file, SW9 should be LOW.
 	To play the note stored in memory, SW9 should be HIGH.
  Inputs:
 	CLOCK_50 and CLOCK2_50 - 1b 50 Mhz clocks responsible for timing
-	KEY - 1b pushbutton on the De-1 SoC board, KEY[0]
+	KEY - 1b pushbutton on the DE-1 SoC board, KEY[0]
 	AUD_* - These signals (1b each) go directly to the Audio CODEC already provided
 				all are input except AUD_XCK, and AUD_DACDAT, which are output
 	I2C_* - These signals (1b each) go directly to the Audio/Video Config module already provided

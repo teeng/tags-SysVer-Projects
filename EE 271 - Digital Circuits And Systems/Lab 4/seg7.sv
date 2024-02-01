@@ -1,12 +1,12 @@
 // module seg7 that defines which segments of four of the HEX displays
-// on the De-1 SoC board should be on or off depending on the 
-// input combination of the switches on the De-1 SoC board
+// on the DE-1 SoC board should be on or off depending on the 
+// input combination of the switches on the DE-1 SoC board
 module seg7 (UPC, HEX0, HEX1, HEX2, HEX3);
 	// Creates input variable UPC for three of the switches on the
-	// De-1 SoC board with type logic
+	// DE-1 SoC board with type logic
 	input  logic  [2:0] UPC;
 	// Creates output variables HEX0, HEX1, HEX2, HEX3 with type logic, each representing
-	// the seven-segment HEX display on the De-1 SoC board
+	// the seven-segment HEX display on the DE-1 SoC board
 	output logic  [6:0] HEX0, HEX1, HEX2, HEX3;
 
 	// Sets the output depending on the case, or input, of UPC.

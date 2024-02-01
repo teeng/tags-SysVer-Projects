@@ -1,7 +1,7 @@
 /*
 Lab 6
 
-This module controls the six HEX displays on the De-1 SoC board,
+This module controls the six HEX displays on the DE-1 SoC board,
 displaying both the count and whether the parking lot is full or clear
 Input:
 	reset: 1b reset signal to set sensors to default behavior
@@ -84,7 +84,7 @@ module hexControl_testbench();
 	
 // Set up the inputs to the design
 // count starts at 0 and goes to 30, where the HEX segments should change
-	// with response to count to altogether display a number on the De-1 SoC board.
+	// with response to count to altogether display a number on the DE-1 SoC board.
 // Should display values representing CLEAr when count is 0
 // and values representing fuLL when count is 25
 // Should not update beyond 0 or 25.

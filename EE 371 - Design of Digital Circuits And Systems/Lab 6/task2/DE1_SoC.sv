@@ -39,7 +39,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, V_G
 	logic dayEnd; // internal signal for when the day has ended
 	logic full; // internal signal for when the lot is full
 	
-	// Setting the clock to be slower if being used on the De-1 SoC board,
+	// Setting the clock to be slower if being used on the DE-1 SoC board,
 	// but otherwise be at 50 MHz for simulation
 	logic clkSlow;
 	parameter whichClock = 25;

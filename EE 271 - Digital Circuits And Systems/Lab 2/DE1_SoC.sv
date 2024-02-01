@@ -1,27 +1,27 @@
 // LAB 2
 // Top-level module DE1_SoC that defines the I/Os for the DE-1 SoC board
 // with parameters HEX0, HEX1... HEX5, KEY, LEDR, and SW
-// The HEX parameter will be for the 70segment displays on the De-1 SoC board 
-// The KEY parameter will be for the pushbuttons on the De-1 SoC board
-// The LEDR parameter will be for the red LEDs on the De-1 SoC board
-// the SW parameter will be for the switches on the De-1 SoC board 
+// The HEX parameter will be for the 70segment displays on the DE-1 SoC board 
+// The KEY parameter will be for the pushbuttons on the DE-1 SoC board
+// The LEDR parameter will be for the red LEDs on the DE-1 SoC board
+// the SW parameter will be for the switches on the DE-1 SoC board 
 
 module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW);   
 	// Creates output variables HEX0...HEX5 that are the 6
-	// 7-segment displays on the De-1 SoC board with type logic
+	// 7-segment displays on the DE-1 SoC board with type logic
 	output logic [6:0]  HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	// Creates output variables LEDR[8]... LEDR[0] for the 9 red LEDs
-	// on the De-1 SoC board with type logic
+	// on the DE-1 SoC board with type logic
 	output logic [9:0]  LEDR;
 	// Creates input variables KEY[2]... KEY[0] for the 3 pushbuttons
-	// on the De-1 SoC board with type logic
+	// on the DE-1 SoC board with type logic
 	input  logic [3:0]  KEY;
 	// Creates input variables SW[8]... SW[0] for the 9 switches on the
-	// De-1 SoC board with type logic
+	// DE-1 SoC board with type logic
 	input  logic [9:0]  SW;
    
 	// Sets each HEX variable to the efault value of '7'b1111111',
-	// which turns off the HEX displays on the De-1 SoC board
+	// which turns off the HEX displays on the DE-1 SoC board
 	assign HEX0 = 7'b1111111; 
 	assign HEX1 = 7'b1111111;
 	assign HEX2 = 7'b1111111;

@@ -1,14 +1,14 @@
 // Top-level module DE1_SoC that defines the I/Os for the DE-1 SoC
 // board with parameters LEDR, and SW
 
-// The LEDR parameter will be for the red LEDs on the De-1 SoC board
-// the SW parameter will be for the switches on the De-1 SoC board 
+// The LEDR parameter will be for the red LEDs on the DE-1 SoC board
+// the SW parameter will be for the switches on the DE-1 SoC board 
 module DE1_SoC (LEDR, SW);
 	// Creates output variables LEDR[8]... LEDR[0] for the 9 red LEDs
-	// on the De-1 SoC board with type logic
+	// on the DE-1 SoC board with type logic
 	output logic [9:0]  LEDR;
 	// Creates input variables SW[8]... SW[0] for the 9 switches on the
-	// De-1 SoC board with type logic
+	// DE-1 SoC board with type logic
 	input  logic [9:0]  SW;
 	
 	// internal signals, v0, v1, v2, v3 with type logic

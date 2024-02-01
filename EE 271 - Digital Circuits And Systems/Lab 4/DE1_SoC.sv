@@ -1,18 +1,18 @@
 // Top-level module DE1_SoC that defines the I/Os for the DE-1 SoC
 // board with parameters HEX0, HEX1, HEX2, HEX3, LEDR, and SW
 
-// The HEX0...HEX3 parameters will be for the 7-segment HEX display on the De-1 SoC board
-// The LEDR parameter will be for the red LEDs on the De-1 SoC board
-// the SW parameter will be for the switches on the De-1 SoC board
+// The HEX0...HEX3 parameters will be for the 7-segment HEX display on the DE-1 SoC board
+// The LEDR parameter will be for the red LEDs on the DE-1 SoC board
+// the SW parameter will be for the switches on the DE-1 SoC board
 module DE1_SoC (HEX0, HEX1, HEX2, HEX3, LEDR, SW);
 	// Creates output variables LEDR[9]... LEDR[0] for the 10 red LEDs
-	// on the De-1 SoC board with type logic
+	// on the DE-1 SoC board with type logic
 	output logic [9:0] LEDR;
 	// Creates output variables HEX0... HEX3 for four of the 7-segment
-	// HEX display on the De-1 SoC board with type logic
+	// HEX display on the DE-1 SoC board with type logic
 	output logic [6:0] HEX0, HEX1, HEX2, HEX3;
 	// Creates input variables SW[9]... SW[0] for the 10 switches on the
-	// De-1 SoC board with type logic	
+	// DE-1 SoC board with type logic	
 	input logic [9:0] SW;
 	
 	// instantiates one DE1_SoCLab4 as d0, which controls the output HEX displays,

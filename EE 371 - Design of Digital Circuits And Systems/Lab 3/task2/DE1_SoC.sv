@@ -10,13 +10,13 @@
  Outputs:
 	HEX0-5 - the 6 HEX displays on the DE1-SoC board, each represented by 7b, one for each of the
 		LEDR segments within it. THerefore, each HEX is 7b
-	LEDR - the 10 LEDRs on the De-1 SoC board, each represented by 1b, and therefore LEDR is a total of 10b
+	LEDR - the 10 LEDRs on the DE-1 SoC board, each represented by 1b, and therefore LEDR is a total of 10b
 	VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS are all 1b signals to control the VGA display connected to the
 		DE-1 SoC board
 */
 module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50, 
 	VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS);
-	// defining variables for working with De-1 SoC board
+	// defining variables for working with DE-1 SoC board
 	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	output logic [9:0] LEDR;
 	input logic [3:0] KEY;
@@ -49,7 +49,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	assign LEDR[0] = resetKey; // visual for reset
 	
 	
-	// Setting the clock to be slower if being used on the De-1 SoC board,
+	// Setting the clock to be slower if being used on the DE-1 SoC board,
 	// but otherwise be at 50 MHz for simulation
 	logic clkSelect;
 	parameter whichClock = 20;

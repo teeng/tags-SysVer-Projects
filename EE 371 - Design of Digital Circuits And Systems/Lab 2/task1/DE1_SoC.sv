@@ -16,7 +16,7 @@ Parameters:
 		
 This module is the overall controller to store input data into a 32x4 memory, meaning
 	there are 32 available registers to store data, with a 4b limit to representing each word of data.
-Data is input into a desired address using switches on the De-1 SoC board, and a keypress represents
+Data is input into a desired address using switches on the DE-1 SoC board, and a keypress represents
 	one clock cycle. Therefore, to read the data back from the memory, another keypress is required.
 When not writing, data can be read from a specified address at a keypress.
 */

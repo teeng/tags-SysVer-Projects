@@ -1,7 +1,7 @@
 /*
 Lab 1
 
-This module controls the six HEX displays on the De-1 SoC board,
+This module controls the six HEX displays on the DE-1 SoC board,
 displaying both the count and whether the parking lot is full or clear
 Input:
 	reset: 1b reset signal to set sensors to default behavior
@@ -40,17 +40,17 @@ module hexControl (reset, count, hex5, hex4, hex3, hex2, hex1, hex0);
 	// hex1Show:
 		// controlled by selHex1Show, and selects between option 1: HEX display off (7b all HIGH) if count is between 0 and 10
 			// or option 0: where the count is less than 10 but greater than 0, and is the tens digit for count
-		// output is 7b option selected to hex1, the HEX1 display on the De-1 SoC board
+		// output is 7b option selected to hex1, the HEX1 display on the DE-1 SoC board
 	muxnb2_1 #(.WIDTH(7)) hex1Clear (.sel(selHex1R), .in1(hexR), .in0(hexTens), .out(hexTemp));
 	muxnb2_1 #(.WIDTH(7)) hex1Show (.sel(selHex1Show), .in1(7'b1111111), .in0(hexTemp), .out(hex1));
 	
 	// Instantiates two seg7 modules
 	// onesDigit:
 		// recieves the separated ones digit from count
-		// outputs directly to hex0, the HEX0 display on the De-1 SoC board
+		// outputs directly to hex0, the HEX0 display on the DE-1 SoC board
 	// tensDigit:
 		// recieves the separated tens digit from count
-		// outputs to hexTens, which may be output to HEX1 display on the De-1 SoC board,
+		// outputs to hexTens, which may be output to HEX1 display on the DE-1 SoC board,
 			// depending on above logic.
 	seg7 onesDigit (.reset(reset), .count(ones), .leds(hex0));
 	seg7 tensDigit (.reset(reset), .count({2'b00, tens}), .leds(hexTens));
@@ -99,7 +99,7 @@ module hexControl_testbench();
 	
 // Set up the inputs to the design
 // count starts at 0 and goes to 30, where the HEX segments should change
-	// with response to count to altogether display a number on the De-1 SoC board.
+	// with response to count to altogether display a number on the DE-1 SoC board.
 // Should display values representing CLEAr when count is 0
 // and values representing fuLL when count is 25
 // Should not update beyond 0 or 25.

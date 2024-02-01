@@ -1,7 +1,7 @@
 /*
 Lab 1
 
-This module controls a single HEX display on the De-1 SoC board containing seven LED segments
+This module controls a single HEX display on the DE-1 SoC board containing seven LED segments
 than can be individually on or turned off. Segments are active LOW.
 
 Input:
@@ -48,7 +48,7 @@ module seg7_testbench();
 	
 // Set up the inputs to the design
 // count starts at 0 and goes to 9, where the HEX segments should change
-	// with response to count to altogether display a number on the De-1 SoC board.
+	// with response to count to altogether display a number on the DE-1 SoC board.
 	integer i;
 	initial begin
 		reset <= 1'b1;

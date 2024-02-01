@@ -1,14 +1,14 @@
 /* 
  Lab 5 Task 2
  
- Top level module for synthesis on the De-1 SoC Board.
- Sends audio data to the De-1 SoC board. Audio is either a provided audio file or a
+ Top level module for synthesis on the DE-1 SoC Board.
+ Sends audio data to the DE-1 SoC board. Audio is either a provided audio file or a
 	generated note initialized in the memory. To play the audio file, SW9 should be LOW.
 	To play the note stored in memory, SW9 should be HIGH.
  Inputs:
 	CLOCK_50 and CLOCK2_50 - 1b 50 Mhz clocks responsible for timing
-	KEY - 1b pushbutton on the De-1 SoC board, KEY[0]
-	SW - 1b ach for the 10 switches on the De-1 SoC board, so 10b total
+	KEY - 1b pushbutton on the DE-1 SoC board, KEY[0]
+	SW - 1b ach for the 10 switches on the DE-1 SoC board, so 10b total
 	AUD_* - These signals (1b each) go directly to the Audio CODEC already provided
 				all are input except AUD_XCK, and AUD_DACDAT, which are output
 	I2C_* - These signals (1b each) go directly to the Audio/Video Config module already provided
@@ -71,7 +71,7 @@ module task2 (CLOCK_50, CLOCK2_50, KEY, SW, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XC
 	part2 noteOnly (.clk(CLOCK_50), .reset(reset), .write(write), .writedata_left(data_left_note),
 						 .writedata_right(data_right_note));
 	
-	// controls whether the data to write to the De-1 SoC should be from the audio file or from
+	// controls whether the data to write to the DE-1 SoC should be from the audio file or from
 		// the generated note, depending on SW9 and reset
 	// If reset (KEY0) is HIGH, don't write any data (0)
 	// If SW9 is high, write from the generated note

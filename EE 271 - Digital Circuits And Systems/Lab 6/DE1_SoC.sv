@@ -1,10 +1,10 @@
 // Top-level module DE1_SoC that defines the I/Os for the DE-1 SoC
 	// board with parameters CLOCK_50 (50 MHz clock), HEX0, HEX1, LEDR, KEY, LEDR, and SW
 
-// The HEX0, HEX1 parameters will be for the 7-segment HEX display on the De-1 SoC board
-// The KEY parameter will be for the 4 pushbuttons on the De-1 SoC board.
-// The LEDR parameter will be for the 10 red LEDs on the De-1 SoC board
-// the SW parameter will be for the 10 switches on the De-1 SoC board
+// The HEX0, HEX1 parameters will be for the 7-segment HEX display on the DE-1 SoC board
+// The KEY parameter will be for the 4 pushbuttons on the DE-1 SoC board.
+// The LEDR parameter will be for the 10 red LEDs on the DE-1 SoC board
+// the SW parameter will be for the 10 switches on the DE-1 SoC board
 module DE1_SoC (CLOCK_50, HEX0, HEX1, KEY, LEDR, SW);
 	input  logic         CLOCK_50; // 50MHz clock.
 	output logic  [6:0]  HEX0, HEX1;
