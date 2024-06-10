@@ -78,7 +78,7 @@ module DE1_SoC_testbench();
 	
 	// tests every possible combination of the input signals for the DE1_SoC,
 	// with a for loop and time delay of 10 time units.
-	// Following the design of the De1-SoC module, the only combination of inputs for
+	// Following the design of the DE1-SoC module, the only combination of inputs for
 	// output LEDR[0] set to high is if both SW[2] and SW[6] are high
 	// and all other switches are low. This corresponds to two 4s being the last
 	// two digits of my student number. All other combination of inputs should

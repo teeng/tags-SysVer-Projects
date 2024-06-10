@@ -24,5 +24,5 @@ The light system was designed by identifying the different states the lights cou
 4.	landing_testbench:
 - Within the landing module is the landing _testbench() module, which tests combinations of inputs from the 2 total switches used in landing module.
 5.	clock_divider:
-- Allows for the clock cycles to appear more visibly on the De1-SoC board by dividing the on-board FPGA clock at 50 Mhzto multiple levels, with the length of the clock increasing by one each time.
+- Allows for the clock cycles to appear more visibly on the DE1-SoC board by dividing the on-board FPGA clock at 50 Mhzto multiple levels, with the length of the clock increasing by one each time.
 

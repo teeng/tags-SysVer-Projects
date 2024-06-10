@@ -20,7 +20,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW);
 	parameter whichClock = 25; 
 	
 	// instantiates a clock divider, which will make the clock cycle and its effects
-	// more visible on the De1-SoC board.
+	// more visible on the DE1-SoC board.
 	clock_divider cdiv (.clock(CLOCK_50), 
 							  .reset(reset),
 							  .divided_clocks(div_clk));

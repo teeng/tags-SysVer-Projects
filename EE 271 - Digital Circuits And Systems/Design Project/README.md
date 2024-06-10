@@ -1,8 +1,9 @@
 # Design Project: Frogger Game
 ## Design Problem
-To potentially train wildlife to avoid cars, the simulation of a frog crossing a high-traffic road using concepts learned in EE 271 can provide insight. The simulation should include two roads of cars moving in alternate directions with a single animal, such as a frog, starting from one safe end of the road and trying to reach the other side to accurately represent the situation of passing traffic for wildlife.
 
-The cars are represented by orange LEDs on the LED Array attachment to the De1-SoC board, and the uppermost cars move leftward while the cars parallel move rightward with a median in between. The frog is represented by a green LED which can move around the allocated 5x6 upper-left section of the LED Array. The frog starts in the 5th row from the top, and attempts to reach the topmost row while avoiding the passing cars. The frog is controlled by four buttons: KEY[3], KEY[2], KEY[1], KEY[0], which move the frog left, right, forwards, or back respectively. Each key press is only counted once, even when holding it down. 
+Frogger is a popular game where a controllable frog must cross alternating traffic of cars and other vehicles and reach the other side safely.
+
+The cars are represented by orange LEDs on the LED Array attachment to the DE1-SoC board, and the uppermost cars move leftward while the cars parallel move rightward with a median in between. The frog is represented by a green LED which can move around the allocated 5x6 upper-left section of the LED Array. The frog starts in the 5th row from the top, and attempts to reach the topmost row while avoiding the passing cars. The frog is controlled by four buttons: KEY[3], KEY[2], KEY[1], KEY[0], which move the frog left, right, forwards, or back respectively. Each key press is only counted once, even when holding it down. 
 
 Reaching the topmost row of the LED Array grants one point for a win, updating the HEX0 display with the new value for a maximum of 7 wins. If the frog, however, becomes roadkill instead, then the HEX0 display updates, decreasing the total wins by 1 to a minimum of 0.
 
@@ -48,7 +49,7 @@ The vehicle movement was determined by identifying the different states the LEDs
 
 The state diagrams for normalLight are shown in Fig. 7 and 8 with alternating direction. normalLight controls which LEDs are turned on in a row of 6. Each 0 represents an LED off and each 1 represents an LED on. Each state transitions to the next automatically.
 
-All state diagrams were later transferred into Verilog to be simulated and then input into the De1-SoC board. The overall design of the system is illustrated below (Fig. 7).
+All state diagrams were later transferred into Verilog to be simulated and then input into the DE1-SoC board. The overall design of the system is illustrated below (Fig. 7).
 
 ![](figures/fig7.png)
 > Fig. 7. Designer Level Block Diagram
@@ -107,7 +108,7 @@ loseChecker checks for when the position of the frog is the same as the position
 counter increments by 1 every time win is HIGH and decrements by 1 every time lose is HIGH. The value of out has a maximum of 7 and a minimum of 0, meaning that if a loss is recorded when out is 0, out will remain 0. If a win is recorded when out is 7, out will remain 7.
 
 ### Generalized Resource Utilization by Entity Report:
-The generalized resources utilized to implement the Frogger design are shown in Table 1. The most amount of gates in the overall design are in LEDDriver, which is necessary to use the LED Array attachment with the De1-SoC board. Following LEDDriver is clock_divider, necessary to divide the clock into a smaller frequency to slow the speed of the vehicles in comparison to the frog (so that the frog may have a chance to cross the road). Otherwise, most gates are used in normalLight, which controls an entire row and has multiple states to specify the LEDs. An individual victoryLight required the fewest, as they had very few inputs to determine logic and states. To minimize the design’s usage of resources, minimal flip flops were added, as well as gate-level implementations of some of the system’s elements, to ensure minimal logic gates being used for certain functions.
+The generalized resources utilized to implement the Frogger design are shown in Table 1. The most amount of gates in the overall design are in LEDDriver, which is necessary to use the LED Array attachment with the DE1-SoC board. Following LEDDriver is clock_divider, necessary to divide the clock into a smaller frequency to slow the speed of the vehicles in comparison to the frog (so that the frog may have a chance to cross the road). Otherwise, most gates are used in normalLight, which controls an entire row and has multiple states to specify the LEDs. An individual victoryLight required the fewest, as they had very few inputs to determine logic and states. To minimize the design’s usage of resources, minimal flip flops were added, as well as gate-level implementations of some of the system’s elements, to ensure minimal logic gates being used for certain functions.
 
 ### Table 1. Number of Gates Used by Module (Generalized)
 ![](figures/fig17.png)
@@ -143,7 +144,7 @@ As I progressed through the EE 271 labs and encountered more than one finite sta
 7.	loseChecker:
 - Instantiated once within DE1_SoC. Checks the positions of the car and the frog for whether they occupy the same LED following a button press. If they do, a loss is output, which will later be sent to module counter instantiated in DE1_SoC to decrement the number of wins for that player, reducing to no less than 0 wins.
 8.	counter:
-- Instantiated within the DE1_SoC module. Takes output from victoryLight and loseChecker on whether there was a win or loss and updates the total amount of wins a player has, with a maximum of seven and a minimum of 0. Sends output to instantiated seg7 module in the DE1_SoC module, which updates result to HEX0 on the De1-SoC board.
+- Instantiated within the DE1_SoC module. Takes output from victoryLight and loseChecker on whether there was a win or loss and updates the total amount of wins a player has, with a maximum of seven and a minimum of 0. Sends output to instantiated seg7 module in the DE1_SoC module, which updates result to HEX0 on the DE1-SoC board.
 9.	seg7:
 - Instantiated within the DE1_SoC module is the seg7 module, which assigns case-by-case the HEX display depending on how many times a player has won. A maximum of 7 rounds are won before no more wins are recorded and a minimum of 0 wins are recorded.
 10.	clock_divider:

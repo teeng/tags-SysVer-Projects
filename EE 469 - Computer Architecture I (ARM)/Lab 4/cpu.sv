@@ -80,8 +80,8 @@ module cpu (clk, reset);
 				// the PCSrc is determined later under BRANCH CONDITION, is controlled by either a
 					// (non)conditional branch or CBZ
 			logic cbzGo;
-			logic [63:0] writeDataLESGO;
-			pc pcUnit (.nextAddr(nextAddr), .memAddr(memAddr), .resultMem(memAddrDest), .setPC(writeDataLESGO), //likely problem with setPC
+			logic [63:0] writeDataExt;
+			pc pcUnit (.nextAddr(nextAddr), .memAddr(memAddr), .resultMem(memAddrDest), .setPC(writeDataExt), //likely problem with setPC
 						  .setPCReg(setPCReg), .PCSrc(PCSrc), .cbzBranch(cbzGo), .clk(clk), .reset(reset));
 			
 		
@@ -327,7 +327,7 @@ module cpu (clk, reset);
 			registers writeDataSave1 (.q(writeDataEX), .d(writeData), .writeEnable(nReset), .clk(clk), .reset(reset));
 			registers writeDataSave2 (.q(writeDataMEM), .d(writeDataEX), .writeEnable(nReset), .clk(clk), .reset(reset));
 			registers writeDataSave3 (.q(writeDataWB), .d(writeDataMEM), .writeEnable(nReset), .clk(clk), .reset(reset));
-			registers writeDataSave4 (.q(writeDataLESGO), .d(writeDataWB), .writeEnable(nReset), .clk(clk), .reset(reset));
+			registers writeDataSave4 (.q(writeDataExt), .d(writeDataWB), .writeEnable(nReset), .clk(clk), .reset(reset));
 			
 			logic linkExt1, linkExt2;
 			registers #(.LENGTH(1)) linkSave2 (.q(linkExt1), .d(M_EX[1]), .writeEnable(nReset), .clk(clk), .reset(reset));

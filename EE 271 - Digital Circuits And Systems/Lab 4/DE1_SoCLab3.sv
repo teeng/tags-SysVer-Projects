@@ -67,7 +67,7 @@ module DE1_SoCLab3_testbench();
 	
 	// tests every possible combination of the input signals for the DE1_SoCLab3 module,
 	// with a time delay of 10 time units.
-	// Following the design of the De1-SoCLab3 module, output to LEDR[9] is high if the item
+	// Following the design of the DE1-SoCLab3 module, output to LEDR[9] is high if the item
 	// is on discount, which would be when either P (SW[8]) or UC (SW[9] AND SW[7]) are high.
 	
 	// some input combinations will never occur, so they do not matter. This includes

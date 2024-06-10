@@ -6,7 +6,7 @@ This diagram illustrates how the two player inputs, KEY[3] and the randomized nu
 ## Design Problem
 Currently, Tug O’War is best known as pulling a rope between two groups or individuals with the goal of pulling the center of the rope completely over to one side of players. The side the rope is pulled over are the winners.
 
-A digital version involving the DE1-SoC board allows for one player and a computer competitor to press (or, for the computer, simulate pressing) buttons to move a light from the center over to one side completely. Repeatedly pressing the button represents tugging on the rope. If the light moves completely over past the other side, the player on that side is victorious. The player’s win count is displayed on the HEX display on the De1-SoC. The count increases with each round won, with a maximum of seven wins. The left hex represents player 1 wins with the right hex representing player 2, the computer, wins. Player 1’s side is controlled by KEY[3] button and Player 2 is controlled by a computer. The LEDRs from 1 through 9 are the playfield, where center light LEDR5 is pulled left or right depending on which player successfully “tugs” the light to their side. If player 1 presses their button while player 2 does not, the light will shift to their side by one (from game start: LEDR[5] to LEDR[6]). If player 2 presses their button while player 1 does not, the light will shift to their side by one (from game start: LEDR[5] to LEDR[4]). If both buttons are pressed at the same time, there is no movement. Players must tap the button repeatedly to try to get the light fully past their side. Players are also prevented from pressing the button continuously.
+A digital version involving the DE1-SoC board allows for one player and a computer competitor to press (or, for the computer, simulate pressing) buttons to move a light from the center over to one side completely. Repeatedly pressing the button represents tugging on the rope. If the light moves completely over past the other side, the player on that side is victorious. The player’s win count is displayed on the HEX display on the DE1-SoC. The count increases with each round won, with a maximum of seven wins. The left hex represents player 1 wins with the right hex representing player 2, the computer, wins. Player 1’s side is controlled by KEY[3] button and Player 2 is controlled by a computer. The LEDRs from 1 through 9 are the playfield, where center light LEDR5 is pulled left or right depending on which player successfully “tugs” the light to their side. If player 1 presses their button while player 2 does not, the light will shift to their side by one (from game start: LEDR[5] to LEDR[6]). If player 2 presses their button while player 1 does not, the light will shift to their side by one (from game start: LEDR[5] to LEDR[4]). If both buttons are pressed at the same time, there is no movement. Players must tap the button repeatedly to try to get the light fully past their side. Players are also prevented from pressing the button continuously.
 
 ## Methods
 ### System Design
@@ -24,7 +24,7 @@ Below are the circuit designs and state diagrams for 3-bit and 4-bit LFSRs. Thes
 > Fig 3. 4-bit LFSR circuit design and state diagram
 
 ![](figures/fig4.png)
-> Fig 4. Block diagram of compareTen, a 10-bit comparator that took the input of a randomly generated number, which is the 10-bit LFSR applying an expanded version of the 3-bit and 4-bit LFSRs above, and the input from the switches on the De1-SoC board.
+> Fig 4. Block diagram of compareTen, a 10-bit comparator that took the input of a randomly generated number, which is the 10-bit LFSR applying an expanded version of the 3-bit and 4-bit LFSRs above, and the input from the switches on the DE1-SoC board.
 
 ### Both Player Input
 To control which LED is on, each LED is controlled by a module with inputs of L and R (whether the left or right button was pressed), and whether the next left and next right (NL and NR) lights are currently on. From this, the two states of whether a light is on or off can be determined.
@@ -48,7 +48,7 @@ In Fig 6., a state diagram is used to convey the different states for what an in
 
 In Fig 7., a state diagram is used to convey the different states for what the victoryLight can be designated as. This overall controls the round ending functionality.
 
-These state diagrams were later transferred into Verilog to be simulated and then input into the De1-SoC board. Furthermore, the design was minimized for number of gates, which is illustrated below in the Resource Utilization by Entity report.
+These state diagrams were later transferred into Verilog to be simulated and then input into the DE1-SoC board. Furthermore, the design was minimized for number of gates, which is illustrated below in the Resource Utilization by Entity report.
 
 ### Resource Utilization by Entity Report:
 The resources utilized to implement the Tug O'War design are shown in Figure 3. The most amount of gates in the overall design are in cdiv, necessary to divide the clock into a smaller frequency from 50MHz. Otherwise, the majority of gates are used in victoryLights, which not only has normal playfield light functionality, but also determines the round ending, increments any player wins, and controls the hex displays. Each individual light required the fewest, as they had very few states and very basic logic for whether the light was on or off. To minimize the design’s usage of resources, minimal flip flops were added, as well as gate-level implementations of some of the system’s elements, to ensure minimal logic gates being used for certain functions.
@@ -82,7 +82,7 @@ Displays resources used by each module involved in the design, under the top-lev
 10.	LFSRTen_testbench:
 - Within the LFSRTen module is the LFSRTen_testbench module, which checks the first 20 numbers generated and ensures sufficient randomness
 11.	compareTen:
-- Instantiated within the computer module is compareTen, which compares the randomly-generated number from LFSRTen to the input combination of SW[8:0] on the De1-SoC board. If the switch value is greater than the random number, then the output is HIGH.
+- Instantiated within the computer module is compareTen, which compares the randomly-generated number from LFSRTen to the input combination of SW[8:0] on the DE1-SoC board. If the switch value is greater than the random number, then the output is HIGH.
 12.	compareTen_testbench
 - Within the compareTen module is the compareTen_testbench(), which checks outputs are accurate for inputs such as 100 > 90 (TRUE), 10 > 9 (TRUE), 5 > 9 (FALSE).
 13.	normalLight:

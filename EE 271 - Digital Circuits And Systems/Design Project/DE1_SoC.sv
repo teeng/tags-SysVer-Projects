@@ -43,7 +43,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK
 
 	clock_divider divider (.clock(CLOCK_50), .divided_clocks(div_clk));
 
-	// CLOCK SELECT - for simulation or for programming the De1-SoC
+	// CLOCK SELECT - for simulation or for programming the DE1-SoC
 	//assign SYSTEM_CLOCK = CLOCK_50;          // for simulation
 	//assign BUS_CLOCK = CLOCK_50;          // for simulation		
 	assign SYSTEM_CLOCK = div_clk[sysClock]; 

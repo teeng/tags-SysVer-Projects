@@ -35,7 +35,7 @@ module DE1_SoCLab4_testbench();
 	
 	// tests every possible combination of the input signals for the DE1_SoCLab4,
 	// with a time delay of 10 time units.
-	// Following the design of the De1-SoCLab4 module, output to the HEXs will describe the product
+	// Following the design of the DE1-SoCLab4 module, output to the HEXs will describe the product
 	// with the item code input from the switches.
 	// some input combinations will never occur, so they do not matter. This includes
 	// UPC codes outside of the 6 that exist, and non-expensive items that have been marked.
